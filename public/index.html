@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <script src="./js/main.js"></script>
+        <title>CAMPEONATO CHUTESAL</title>
+    </head>
+    <body>
+        <div class="main-login">
+            <div class="left-login">
+                <h1>Faça login<br>E participe do nosso campeonato</h1>
+                <img src="./img/soccer-animate.svg" class="left-login-image" alt="Futebol animado">
+            </div>
+             <form action="/users/login" method="POST">
+                <div class="right-login">
+                    <div class="card-login">
+                        <h1>LOGIN</h1>
+                        <div class="textfield">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" onchange="validateFields()" placeholder="E-mail">
+                        </div>
+                        <div class="textfield">
+                            <label for="password">Senha</label>
+                            <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Senha">
+                        </div>
+                        <button class="btn-login" type="submit" id="login-button" disabled="true">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
