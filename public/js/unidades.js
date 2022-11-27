@@ -11,7 +11,7 @@ function atualizarUnidades() {
       let unidades = json;
 
       unidades.forEach((item) => {
-        let elementoUnidade = `<tr>
+        let elementoUnidade = `<tr id="${item.id}">
           <td class="margin-right">${item.name}</td>
           <td class="margin-right">${item.address}</td>
           <td class="margin-right">${item.quadras}</td>
@@ -23,3 +23,9 @@ function atualizarUnidades() {
       document.getElementById("teste").innerHTML = elementosUnidade;
     });
 }
+
+// function deletarUnidades(id: Int) {
+//   fetch("/unidades/dados/“ + id)
+//    .then(
+//       atualizarUnidades()
+// )

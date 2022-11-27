@@ -7,6 +7,36 @@ body {
 
 body * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 7%;
+  padding-right: 7%;
+  background: #2f2841;
+  color: #00ff88;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.menu-list {
+  list-style-type: none;
+  display: flex;
+  gap: 50px;
+}
+
+.menu-list a {
+  color: #00ff88;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.menu-list a:hover {
+  border-bottom: solid 2px #00ff88;
 }
 
 .main-unidades {
@@ -89,7 +119,7 @@ body * {
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  --webkit-appearance: none;
   margin: 0;
 }
 
