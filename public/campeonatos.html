@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/unidades.css" rel="stylesheet" type="text/css" />
-    <script src="./js/unidades.js"></script>
-    <title>Gerenciamento de Unidades - ChuteSal</title>
+    <script src="./js/campeonatos.js"></script>
+    <title>Gerenciamento de Campeonatos - ChuteSal</title>
   </head>
   <body>
     <header id="header">
@@ -20,41 +20,49 @@
     <div class="main-unidades">
       <div class="right-unidades">
         <div class="card-unidades" id="lista-unidades">
-          <h1>Unidades Cadastradas</h1>
+          <h1>campeonatos Cadastradas</h1>
           <table id="teste"></table>
         </div>
       </div>
-      <form action="/unidades/register" method="POST">
+      <form id="form-campeonato" action="/campeonatos/register" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
-            <h1>Cadastre as Unidades</h1>
+            <h1>Cadastre os campeonatos</h1>
             <div class="textfield">
-              <label for="name">Nome da Unidade</label>
+              <label for="name">Nome do campeonato</label>
               <input
                 type="text"
                 name="txtName"
                 id="unidade"
-                placeholder="Nome da Unidade"
+                placeholder="Nome do campeonato"
               />
             </div>
             <div class="textfield">
-              <label for="endereco">Endereço</label>
+              <label for="endereco">Periodo de inscrição</label>
               <input
-                type="text"
-                name="txtAddress"
+                type="date"
+                name="inscricao"
                 id="endereco"
-                placeholder="Endereço da Unidade"
+                placeholder="Periodo de inscrição"
               />
             </div>
             <div class="textfield">
-              <label for="quadras">Quantidade de quadras</label>
+              <label for="quadras">Inicio de divulgação</label>
               <input
-                type="number"
-                name="txtQuadras"
+                type="date"
+                name="divulgacao"
                 id="quadras"
-                min="1"
-                placeholder="Quantidade de Quadras"
+                placeholder="Inicio de divulgação"
               />
+            </div>
+            <div class="textfield">
+              <label for="status">Status</label>
+              <select id="status" name="statusList" form="form-campeonato">
+                <option value="planejado">Planejado</option>
+                <option value="andamento">Em andamento</option>
+                <option value="cancelado">Cancelado</option>
+                <option value="executado">Executado</option>
+              </select>
             </div>
             <button class="btn-unidades" type="submit" id="unidades-button">
               CRIAR
