@@ -21,12 +21,14 @@ body * {
   color: #00ff88;
   padding-top: 15px;
   padding-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 .menu-list {
   list-style-type: none;
   display: flex;
   gap: 50px;
+  flex-wrap: wrap;
 }
 
 .menu-list a {
@@ -65,7 +67,7 @@ body * {
 }
 
 .card-unidades {
-  width: 65%;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +76,10 @@ body * {
   background: #2f2841;
   border-radius: 20px;
   box-shadow: 0px 10px 40px #00000056;
+}
+
+#lista-unidades {
+  overflow: auto;
 }
 
 .card-unidades > h1 {
