@@ -13,8 +13,8 @@ function atualizarCampeonatos() {
       campeonatos.forEach((item) => {
         let elementoCampeonato = `<tr id="${item._id}">
           <td class="margin-right">${item.name}</td>
-          <td class="margin-right">${item.inscricao.substr(0, 10)}</td>
-          <td class="margin-right">${item.divulgacao.substr(0, 10)}</td>
+          <td class="margin-right">${item.inscricao?.substr(0, 10)}</td>
+          <td class="margin-right">${item.divulgacao?.substr(0, 10)}</td>
           <td class="margin-right">${item.status}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
         </tr>`;
