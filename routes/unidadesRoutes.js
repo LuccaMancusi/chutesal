@@ -1,10 +1,10 @@
 const router = require("express").Router();
+const { restart } = require("nodemon");
 const Unidades = require("../models/Unidades");
 
 // criação de unidades
 router.post("/register", async (req, res) => {
   const Unidade = await new Unidades({
-    id: generateID(),
     name: req.body.txtName,
     address: req.body.txtAddress,
     quadras: req.body.txtQuadras,
@@ -20,15 +20,25 @@ router.post("/register", async (req, res) => {
 
 router.get("/dados", async (req, res) => {
   try {
-    const data = await Unidades.find({}, "name address quadras -_id");
+    const data = await Unidades.find({}, "name address quadras");
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({ message: "Falha ao carregar os dados! " });
   }
 });
 
-function generateID() {
-  return Math.random().toString(36).substring(2, 9);
-}
+router.delete("/dados/:id", (req, res) => {
+  Unidades.findByIdAndDelete(req.params.id)
+    .then((unidades) => {
+      if (!unidades) {
+        return res.status(404).send();
+      } else {
+        return rest.status(200).send();
+      }
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+});
 
 module.exports = router;
