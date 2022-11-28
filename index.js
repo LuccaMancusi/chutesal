@@ -46,6 +46,6 @@ mongoose
   )
   .then(() => {
     console.log("Conectado ao MongoDB!");
-    app.listen(3000);
+    app.listen(process.env.PORT || port);
   })
   .catch((err) => console.log(err));
