@@ -25,9 +25,12 @@ app.use("/users", usersRoutes);
 const unidadesRoutes = require("./routes/unidadesRoutes");
 app.use("/unidades", unidadesRoutes);
 
-// rota para Unidades
+// rota para campeonatos
 const campeonatosRoutes = require("./routes/campeonatosRoutes");
 app.use("/campeonatos", campeonatosRoutes);
+
+const jogadoresRoutes = require("./routes/jogadoresRoutes");
+app.use("/jogadores", jogadoresRoutes);
 
 // rota inicial / endpoint
 app.get("/login", function (req, res) {

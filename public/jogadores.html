@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/unidades.css" rel="stylesheet" type="text/css" />
-    <script src="./js/unidades.js"></script>
-    <title>Gerenciamento de Unidades - ChuteSal</title>
+    <script src="./js/jogadores.js"></script>
+    <title>Gerenciamento de Jogadores - ChuteSal</title>
   </head>
   <body>
     <header id="header">
@@ -20,40 +20,49 @@
     <div class="main-unidades">
       <div class="right-unidades">
         <div class="card-unidades" id="lista-unidades">
-          <h1>Unidades Cadastradas</h1>
+          <h1>Jogadores Cadastrados</h1>
           <table id="teste"></table>
         </div>
       </div>
-      <form action="/unidades/register" method="POST">
+      <form action="/jogadores/register" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
-            <h1>Cadastre as Unidades</h1>
+            <h1>Cadastre os jogadores</h1>
             <div class="textfield">
-              <label for="name">Nome da Unidade</label>
-              <input
-                type="text"
-                name="txtName"
-                id="unidade"
-                placeholder="Nome da Unidade"
-              />
-            </div>
-            <div class="textfield">
-              <label for="endereco">Endereço</label>
-              <input
-                type="text"
-                name="txtAddress"
-                id="endereco"
-                placeholder="Endereço da Unidade"
-              />
-            </div>
-            <div class="textfield">
-              <label for="quadras">Quantidade de quadras</label>
+              <label for="number">Número do jogador</label>
               <input
                 type="number"
-                name="txtQuadras"
-                id="quadras"
+                name="number"
+                id="number"
                 min="1"
-                placeholder="Quantidade de Quadras"
+                placeholder="Numero do jogador"
+              />
+            </div>
+            <div class="textfield">
+              <label for="name">Nome do jogador</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Nome do jogador"
+              />
+            </div>
+            <div class="textfield">
+              <label for="nickname">Apelido</label>
+              <input
+                type="text"
+                name="nickname"
+                id="nickname"
+                placeholder="Apelido do jogador"
+              />
+            </div>
+            <div class="textfield">
+              <label for="birthday">Data de nascimento</label>
+              <input
+                type="date"
+                name="birthday"
+                id="birthday"
+                placeholder="Data de nascimento"
               />
             </div>
             <button class="btn-unidades" type="submit" id="unidades-button">

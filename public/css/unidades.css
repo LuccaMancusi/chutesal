@@ -151,6 +151,10 @@ input[type="number"]::-webkit-inner-spin-button {
   padding-right: 60px;
 }
 
+td {
+  color: #00ff88;
+}
+
 @media only screen and (max-width: 950px) {
   .card-unidades {
     width: 85%;
