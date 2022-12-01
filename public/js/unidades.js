@@ -12,7 +12,7 @@ function atualizarUnidades() {
 
       unidades.forEach((item) => {
         let elementoUnidade = `<tr id="${item._id}">
-          <td onclick="popup(this)" class="margin-right">${item.name}</td>
+          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${item.name}</td>
           <td class="margin-right">${item.address}</td>
           <td class="margin-right">${item.cep}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
