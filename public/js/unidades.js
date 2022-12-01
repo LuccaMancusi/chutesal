@@ -19,8 +19,11 @@ function atualizarUnidades() {
         </tr>`;
         elementosUnidade += elementoUnidade;
       });
+      let tableHead =
+        "<thead><tr id='table-head'><td>Nome</td><td>Endereço</td><td>Quadras</td></tr><thead>";
 
-      document.getElementById("teste").innerHTML = elementosUnidade;
+      document.getElementById("teste").innerHTML =
+        tableHead + "<tbody>" + elementosUnidade + "</tbody>";
     });
 }
 
@@ -42,9 +45,3 @@ function deletar(e) {
     atualizarUnidades();
   });
 }
-
-// function deletarUnidades(id: Int) {
-//   fetch("/unidades/dados/“ + id)
-//    .then(
-//       atualizarUnidades()
-// )

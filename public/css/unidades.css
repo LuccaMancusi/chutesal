@@ -160,7 +160,16 @@ input[type="number"]::-webkit-inner-spin-button {
 td {
   color: #00ff88;
 }
-
+tbody:before {
+  content: "@";
+  display: block;
+  line-height: 10px;
+  text-indent: -99999px;
+}
+thead td {
+  border-bottom: 3px solid #201b2c;
+  padding-bottom: 10px;
+}
 @media only screen and (max-width: 950px) {
   .card-unidades {
     width: 85%;
