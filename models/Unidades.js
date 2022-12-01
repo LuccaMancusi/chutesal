@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Unidades = mongoose.model("Unidades", {
   name: { type: String },
   address: { type: String },
-  quadras: { type: Number },
+  cep: { type: Number },
 });
 
 module.exports = Unidades;

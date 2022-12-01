@@ -12,15 +12,15 @@ function atualizarUnidades() {
 
       unidades.forEach((item) => {
         let elementoUnidade = `<tr id="${item._id}">
-          <td class="margin-right">${item.name}</td>
+          <td onclick="popup(this)" class="margin-right">${item.name}</td>
           <td class="margin-right">${item.address}</td>
-          <td class="margin-right">${item.quadras}</td>
+          <td class="margin-right">${item.cep}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
         </tr>`;
         elementosUnidade += elementoUnidade;
       });
       let tableHead =
-        "<thead><tr id='table-head'><td>Nome</td><td>Endereço</td><td>Quadras</td></tr><thead>";
+        "<thead><tr id='table-head'><td>Nome</td><td>Endereço</td><td>CEP</td></tr><thead>";
 
       document.getElementById("teste").innerHTML =
         tableHead + "<tbody>" + elementosUnidade + "</tbody>";
@@ -44,4 +44,18 @@ function deletar(e) {
   fetch(url, options).then((res) => {
     atualizarUnidades();
   });
+}
+
+function popup(e) {
+  //abrir popup
+  const modal = document.getElementById("popup");
+  modal.showModal();
+
+  //consultar dados do objeto por id - get por id na url da api
+  //modificar valores dos campos
+}
+
+function fecharPopUp() {
+  const modal = document.getElementById("popup");
+  modal.close();
 }

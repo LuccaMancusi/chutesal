@@ -47,13 +47,13 @@
               />
             </div>
             <div class="textfield">
-              <label for="quadras">Quantidade de quadras</label>
+              <label for="cep">CEP</label>
               <input
                 type="number"
-                name="txtQuadras"
-                id="quadras"
+                name="txtCep"
+                id="cep"
                 min="1"
-                placeholder="Quantidade de Quadras"
+                placeholder="CEP"
               />
             </div>
             <button class="btn-unidades" type="submit" id="unidades-button">
@@ -63,5 +63,48 @@
         </div>
       </form>
     </div>
+    <dialog id="popup">
+      <form action="/unidades/register" method="POST">
+        <div class="card-unidades">
+          <h1>Atualizar unidade</h1>
+          <div class="textfield">
+            <label for="name">Nome da Unidade</label>
+            <input
+              type="text"
+              name="txtName"
+              id="unidade"
+              placeholder="Nome da Unidade"
+            />
+          </div>
+          <div class="textfield">
+            <label for="endereco">Endereço</label>
+            <input
+              type="text"
+              name="txtAddress"
+              id="endereco"
+              placeholder="Endereço da Unidade"
+            />
+          </div>
+          <div class="textfield">
+            <label for="cep">CEP</label>
+            <input
+              type="number"
+              name="txtCep"
+              id="cep"
+              min="1"
+              placeholder="CEP"
+            />
+          </div>
+          <button
+            onclick="fecharPopUp()"
+            class="btn-unidades"
+            type="submit"
+            id="unidades-button"
+          >
+            Atualizar
+          </button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>

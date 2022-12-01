@@ -7,7 +7,7 @@ router.post("/register", async (req, res) => {
   const Unidade = await new Unidades({
     name: req.body.txtName,
     address: req.body.txtAddress,
-    quadras: req.body.txtQuadras,
+    cep: req.body.txtCep,
   });
   Unidade.save(function (err) {
     if (err) {
@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
 
 router.get("/dados", async (req, res) => {
   try {
-    const data = await Unidades.find({}, "name address quadras");
+    const data = await Unidades.find({}, "name address cep");
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({ message: "Falha ao carregar os dados! " });
@@ -33,7 +33,7 @@ router.delete("/dados/:id", (req, res) => {
       if (!unidades) {
         return res.status(404).send();
       } else {
-        return rest.status(200).send();
+        return res.status(200).send();
       }
     })
     .catch((error) => {

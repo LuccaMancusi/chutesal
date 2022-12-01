@@ -65,13 +65,15 @@ body * {
   justify-content: center;
   align-items: center;
 }
-
-.card-unidades {
-  width: 85%;
+.right-unidades .card-unidades {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.card-unidades {
+  width: 85%;
+
   padding: 30px 35px;
   background: #2f2841;
   border-radius: 20px;
@@ -170,6 +172,24 @@ thead td {
   border-bottom: 3px solid #201b2c;
   padding-bottom: 10px;
 }
+dialog {
+  border-radius: 27px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50vw;
+}
+dialog .card-unidades {
+  width: 100%;
+  /* justify-content: center; */
+}
+dialog .btn-unidades {
+  margin-left: 0;
+}
+
 @media only screen and (max-width: 950px) {
   .card-unidades {
     width: 85%;
