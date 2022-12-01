@@ -47,12 +47,29 @@ function deletar(e) {
 }
 
 function popup(e) {
-  //abrir popup
-  const modal = document.getElementById("popup");
-  modal.showModal();
-
   //consultar dados do objeto por id - get por id na url da api
-  //modificar valores dos campos
+
+  let url = "/unidades/" + e.parentNode.id;
+  let nome = document.getElementById("unidade-update");
+  let endereco = document.getElementById("endereco-update");
+  let cep = document.getElementById("cep-update");
+  const modal = document.getElementById("popup");
+  fetch(url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json);
+      nome.value = json.name;
+      endereco.value = json.address;
+      cep.value = json.cep;
+    })
+    .then(() => {
+      modal.showModal();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function fecharPopUp() {

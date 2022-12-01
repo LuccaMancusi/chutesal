@@ -27,6 +27,15 @@ router.get("/dados", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const data = await Unidades.findById(req.params.id);
+    res.send(data);
+  } catch (err) {
+    res.send(err);
+  }
+});
+
 router.delete("/dados/:id", (req, res) => {
   Unidades.findByIdAndDelete(req.params.id)
     .then((unidades) => {
