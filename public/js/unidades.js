@@ -12,15 +12,18 @@ function atualizarUnidades() {
 
       unidades.forEach((item) => {
         let elementoUnidade = `<tr id="${item._id}">
-          <td class="margin-right">${item.name}</td>
+          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${item.name}</td>
           <td class="margin-right">${item.address}</td>
-          <td class="margin-right">${item.quadras}</td>
+          <td class="margin-right">${item.cep}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
         </tr>`;
         elementosUnidade += elementoUnidade;
       });
+      let tableHead =
+        "<thead><tr id='table-head'><td>Nome</td><td>Endereço</td><td>CEP</td></tr><thead>";
 
-      document.getElementById("teste").innerHTML = elementosUnidade;
+      document.getElementById("teste").innerHTML =
+        tableHead + "<tbody>" + elementosUnidade + "</tbody>";
     });
 }
 
@@ -43,8 +46,33 @@ function deletar(e) {
   });
 }
 
-// function deletarUnidades(id: Int) {
-//   fetch("/unidades/dados/“ + id)
-//    .then(
-//       atualizarUnidades()
-// )
+function popup(e) {
+  //consultar dados do objeto por id - get por id na url da api
+
+  let url = "/unidades/" + e.parentNode.id;
+  let nome = document.getElementById("unidade-update");
+  let endereco = document.getElementById("endereco-update");
+  let cep = document.getElementById("cep-update");
+  const modal = document.getElementById("popup");
+  fetch(url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json);
+      nome.value = json.name;
+      endereco.value = json.address;
+      cep.value = json.cep;
+    })
+    .then(() => {
+      modal.showModal();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+function fecharPopUp() {
+  const modal = document.getElementById("popup");
+  modal.close();
+}
