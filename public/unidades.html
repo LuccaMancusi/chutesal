@@ -64,10 +64,20 @@
       </form>
     </div>
     <dialog id="popup">
-      <form action="/unidades/register" method="POST">
+      <form id = "updateForm">
         <div class="card-unidades">
           <div onclick="fecharPopUp()" id="close">x</div>
           <h1>Atualizar unidade</h1>
+          <div class="textfield">
+            <label for="id">Id da Unidade</label>
+            <input
+              type="text"
+              name="txtId"
+              id="id-update"
+              placeholder="Id da Unidade"
+              
+            />
+          </div>
           <div class="textfield">
             <label for="name">Nome da Unidade</label>
             <input
@@ -97,10 +107,9 @@
             />
           </div>
           <button
-            onclick="fecharPopUp()"
+            onclick="editarUnidade()"
             class="btn-unidades"
-            type="submit"
-            id="unidades-button"
+            id="update-button"
           >
             Atualizar
           </button>

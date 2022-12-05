@@ -48,11 +48,12 @@ function deletar(e) {
 
 function popup(e) {
   //consultar dados do objeto por id - get por id na url da api
-
-  let url = "/unidades/" + e.parentNode.id;
+  let url = "/unidades/dados/" + e.parentNode.id;
+  let id = document.getElementById("id-update");
   let nome = document.getElementById("unidade-update");
   let endereco = document.getElementById("endereco-update");
   let cep = document.getElementById("cep-update");
+  // let submitButton = document.getElementById("update-button") 
   const modal = document.getElementById("popup");
   fetch(url)
     .then((res) => {
@@ -60,11 +61,14 @@ function popup(e) {
     })
     .then((json) => {
       console.log(json);
+      id.value = json._id
       nome.value = json.name;
       endereco.value = json.address;
       cep.value = json.cep;
+      // modal.id = e.parentNode.id;
+      // submitButton.onclick = editarUnidade()
     })
-    .then(() => {
+    .then(() => { 
       modal.showModal();
     })
     .catch((err) => {
@@ -75,4 +79,28 @@ function popup(e) {
 function fecharPopUp() {
   const modal = document.getElementById("popup");
   modal.close();
+}
+
+function editarUnidade() {
+  let id = document.getElementById("id-update").value;
+  let nome = document.getElementById("unidade-update").value;
+  let endereco = document.getElementById("endereco-update").value;
+  let cep = document.getElementById("cep-update").value;
+  
+
+  const options = {
+    method: "PUT",
+    headers: new Headers({ "content-type": "application/json" }),
+    body: JSON.stringify({
+      name: nome,
+      address: endereco,
+      cep: cep
+    }),
+  };
+
+  const url = "/unidades/dados/" + id;
+
+  fetch(url, options).then((res) => {
+    atualizarUnidades();
+  });
 }

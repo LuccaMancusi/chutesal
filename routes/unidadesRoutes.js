@@ -27,13 +27,28 @@ router.get("/dados", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/dados/:id", async (req, res) => {
   try {
     const data = await Unidades.findById(req.params.id);
     res.send(data);
   } catch (err) {
     res.send(err);
   }
+});
+
+router.put("/dados/:id", async (req, res) => {
+  let id = req.params.id;
+  let name = req.body.name;
+  let address = req.body.address;
+  let cep = req.body.cep;
+
+  let update = { name, address, cep };
+
+  Unidades.findByIdAndUpdate(id, update)
+    .then(res.status(200).send())
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
 router.delete("/dados/:id", (req, res) => {
