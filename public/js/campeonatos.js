@@ -21,7 +21,10 @@ function atualizarCampeonatos() {
         elementosCampeonato += elementoCampeonato;
       });
 
-      document.getElementById("teste").innerHTML = elementosCampeonato;
+      let tableHead =
+        "<thead><tr id='table-head'><td>Nome</td><td>Período de Inscrição</td><td>Período de Divulgação</td><td>Status</td></tr><thead>";
+
+      document.getElementById("teste").innerHTML =  tableHead + "<tbody>" + elementosCampeonato + "</tbody>"
     });
 }
 

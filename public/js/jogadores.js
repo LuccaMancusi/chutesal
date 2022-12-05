@@ -21,7 +21,11 @@ function atualizarJogadores() {
         elementosJogador += elementoJogador;
       });
 
-      document.getElementById("teste").innerHTML = elementosJogador;
+      let tableHead =
+        "<thead><tr id='table-head'><td>Número</td><td>Nome</td><td>Apelido</td><td>Data de Nascimento</td></tr><thead>";
+
+      document.getElementById("teste").innerHTML =
+        tableHead + "<tbody>" + elementosJogador + "</tbody>";
     });
 }
 
