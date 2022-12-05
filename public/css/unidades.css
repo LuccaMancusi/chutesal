@@ -202,6 +202,20 @@ dialog::backdrop {
   cursor: pointer;
 }
 
+#options {
+  background: #201b2c;
+  padding-left: 7%;
+  padding-top: 10px;
+}
+#options a {
+  text-decoration: none;
+  color: #00ff88;
+  margin-right: 32px;
+}
+#options a:hover {
+  border-bottom: solid 2px #00ff88;
+}
+
 @media only screen and (max-width: 950px) {
   .card-unidades {
     width: 85%;

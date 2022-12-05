@@ -23,41 +23,31 @@
     <div class="main-unidades">
       <div class="left-unidades">
         <div class="card-unidades" id="lista-unidades">
-          <h1>Unidades Cadastradas</h1>
+          <h1>Quadras Cadastradas</h1>
           <table id="teste"></table>
         </div>
       </div>
-      <form action="/unidades/register" method="POST">
+      <form action="/quadras/register" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
-            <h1>Cadastre as Unidades</h1>
+            <h1>Cadastre as quadras</h1>
             <div class="textfield">
-              <label for="name">Nome da Unidade</label>
+              <label for="name">Nome da Quadra</label>
               <input
                 type="text"
                 name="txtName"
-                id="unidade"
-                placeholder="Nome da Unidade"
+                id="nome-quadra"
+                placeholder="Nome da Quadra"
               />
             </div>
             <div class="textfield">
-              <label for="endereco">Endereço</label>
-              <input
-                type="text"
-                name="txtAddress"
-                id="endereco"
-                placeholder="Endereço da Unidade"
-              />
-            </div>
-            <div class="textfield">
-              <label for="cep">CEP</label>
-              <input
-                type="number"
-                name="txtCep"
-                id="cep"
-                min="1"
-                placeholder="CEP"
-              />
+              <label for="endereco">Unidade</label>
+              <select name="unidade" id="unidades">
+                <option value="trp">trompete</option>
+                <option value="tpa">trompa</option>
+                <option value="tbn">trombone</option>
+                <option value="tub">tuba</option>
+              </select>
             </div>
             <button class="btn-unidades" type="submit" id="unidades-button">
               CRIAR
