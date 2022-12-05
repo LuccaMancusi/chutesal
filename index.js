@@ -25,6 +25,10 @@ app.use("/users", usersRoutes);
 const unidadesRoutes = require("./routes/unidadesRoutes");
 app.use("/unidades", unidadesRoutes);
 
+// rota para Quadras
+const quadrasRoutes = require("./routes/quadrasRoutes");
+app.use("/quadras", quadrasRoutes);
+
 // rota para campeonatos
 const campeonatosRoutes = require("./routes/campeonatosRoutes");
 app.use("/campeonatos", campeonatosRoutes);
@@ -35,6 +39,9 @@ app.use("/jogadores", jogadoresRoutes);
 // rota inicial / endpoint
 app.get("/unidades", function (req, res) {
   res.sendFile(__dirname + "/public/unidades.html");
+});
+app.get("/quadras", function (req, res) {
+  res.sendFile(__dirname + "/public/quadras.html");
 });
 app.get("/jogadores", function (req, res) {
   res.sendFile(__dirname + "/public/jogadoress.html");

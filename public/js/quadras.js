@@ -12,17 +12,29 @@ function atualizarUnidades() {
 
       unidades.forEach((item) => {
         let option = `<option value="${item.name}">${item.name}</option>`;
+        selectElements += option;
+      });
+
+      document.getElementById("unidades").innerHTML = selectElements;
+    });
+  fetch("/quadras/dados")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      let elementosUnidade = "";
+      let quadras = json;
+
+      quadras.forEach((item) => {
         let elementoUnidade = `<tr id="${item._id}">
-          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${item.name}</td>
-          <td class="margin-right">${item.address}</td>
-          <td class="margin-right">${item.cep}</td>
+          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${item.nameQuadra}</td>
+          <td class="margin-right">${item.nameUnidade}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
         </tr>`;
         elementosUnidade += elementoUnidade;
-        selectElements += option;
       });
       let tableHead =
-        "<thead><tr id='table-head'><td>Nome</td><td>Endereço</td><td>CEP</td></tr><thead>";
+        "<thead><tr id='table-head'><td>Quadra</td><td>Unidade</td></tr><thead>";
 
       document.getElementById("teste").innerHTML =
         tableHead + "<tbody>" + elementosUnidade + "</tbody>";
@@ -42,7 +54,7 @@ function deletar(e) {
     body: JSON.stringify(unidade),
   };
 
-  const url = "/unidades/dados/" + id;
+  const url = "/quadras/dados/" + id;
 
   fetch(url, options).then((res) => {
     atualizarUnidades();
@@ -51,7 +63,7 @@ function deletar(e) {
 
 function popup(e) {
   //consultar dados do objeto por id - get por id na url da api
-  let url = "/unidades/dados/" + e.parentNode.id;
+  let url = "/quadras/dados/" + e.parentNode.id;
   let id = document.getElementById("id-update");
   let nome = document.getElementById("unidade-update");
   let endereco = document.getElementById("endereco-update");
