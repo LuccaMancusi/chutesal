@@ -3,7 +3,7 @@ const { restart } = require("nodemon");
 const Jogadores = require("../models/Jogadores");
 
 // criação de unidades
-router.post("/register", async (req, res) => {
+router.post("/dados", async (req, res) => {
   const Jogador = await new Jogadores({
     number: req.body.number,
     name: req.body.name,
@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.redirect("/jogadores.html");
+      res.redirect("/jogadores");
     }
   });
 });

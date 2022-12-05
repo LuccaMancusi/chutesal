@@ -27,7 +27,7 @@
           <table id="teste"></table>
         </div>
       </div>
-      <form action="/unidades/register" method="POST">
+      <form action="/unidades/dados" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
             <h1>Cadastre as Unidades</h1>
@@ -72,12 +72,12 @@
           <div onclick="fecharPopUp()" id="close">x</div>
           <h1>Atualizar unidade</h1>
           <div class="textfield">
-            <label for="id">Id da Unidade</label>
             <input
               type="text"
               name="txtId"
               id="id-update"
               placeholder="Id da Unidade"
+              style= "display: none;"
             />
           </div>
           <div class="textfield">

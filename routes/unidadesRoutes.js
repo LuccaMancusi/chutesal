@@ -3,7 +3,7 @@ const { restart } = require("nodemon");
 const Unidades = require("../models/Unidades");
 
 // criação de unidades
-router.post("/register", async (req, res) => {
+router.post("/dados", async (req, res) => {
   const Unidade = await new Unidades({
     name: req.body.txtName,
     address: req.body.txtAddress,
@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.redirect("/login");
+      res.redirect("/unidades");
     }
   });
 });

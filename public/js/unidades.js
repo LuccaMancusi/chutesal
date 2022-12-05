@@ -102,5 +102,6 @@ function editarUnidade() {
 
   fetch(url, options).then((res) => {
     atualizarUnidades();
+    fecharPopUp();
   });
 }

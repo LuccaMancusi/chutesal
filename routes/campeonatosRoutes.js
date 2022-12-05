@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.redirect("/campeonatos.html");
+      res.redirect("/campeonatos");
     }
   });
 });
