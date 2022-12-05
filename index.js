@@ -37,7 +37,7 @@ app.get("/unidades", function (req, res) {
   res.sendFile(__dirname + "/public/unidades.html");
 });
 app.get("/jogadores", function (req, res) {
-  res.sendFile(__dirname + "/public/jogadoress.html");
+  res.sendFile(__dirname + "/public/jogadores.html");
 });
 app.get("/campeonatos", function (req, res) {
   res.sendFile(__dirname + "/public/campeonatos.html");
