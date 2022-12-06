@@ -44,7 +44,7 @@ app.get("/quadras", function (req, res) {
   res.sendFile(__dirname + "/public/quadras.html");
 });
 app.get("/jogadores", function (req, res) {
-  res.sendFile(__dirname + "/public/jogadoress.html");
+  res.sendFile(__dirname + "/public/jogadores.html");
 });
 app.get("/campeonatos", function (req, res) {
   res.sendFile(__dirname + "/public/campeonatos.html");
@@ -56,7 +56,7 @@ app.get("/login", function (req, res) {
 const DB_USER = "mackenzista";
 const DB_PASSWORD = encodeURIComponent("Mackenzie2022");
 
-app.listen(3000);
+app.listen(process.env.PORT || port);
 mongoose
   .connect(
     `mongodb+srv://${DB_USER}:${DB_PASSWORD}@chutesal.i9zh8lf.mongodb.net/?retryWrites=true&w=majority`

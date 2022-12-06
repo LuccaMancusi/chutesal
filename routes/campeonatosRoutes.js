@@ -3,7 +3,7 @@ const { restart } = require("nodemon");
 const Campeonatos = require("../models/Campeonatos");
 
 // criação de unidades
-router.post("/register", async (req, res) => {
+router.post("/dados", async (req, res) => {
   const Campeonato = await new Campeonatos({
     name: req.body.txtName,
     inscricao: req.body.inscricao,
