@@ -1,13 +1,14 @@
 window.onload = atualizarUnidades;
 
 function atualizarUnidades() {
+  let selectElements = "";
   fetch("/unidades/dados")
     .then((res) => {
       return res.json();
     })
     .then((json) => {
       let elementosUnidade = "";
-      let selectElements = "";
+
       let unidades = json;
 
       unidades.forEach((item) => {
@@ -66,10 +67,24 @@ function popup(e) {
   let url = "/quadras/dados/" + e.parentNode.id;
   let id = document.getElementById("id-update");
   let nome = document.getElementById("unidade-update");
-  let endereco = document.getElementById("endereco-update");
-  let cep = document.getElementById("cep-update");
-  // let submitButton = document.getElementById("update-button")
+  let unidade = document.getElementById("unidades-select");
   const modal = document.getElementById("popup");
+  fetch("/unidades/dados")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      let unidades = json;
+      let selectElements = "";
+      unidades.forEach((item) => {
+        let option = `<option value="${item.name}">${item.name}</option>`;
+        selectElements += option;
+      });
+      document.getElementById("unidades-select").innerHTML = selectElements;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   fetch(url)
     .then((res) => {
       return res.json();
@@ -77,11 +92,13 @@ function popup(e) {
     .then((json) => {
       console.log(json);
       id.value = json._id;
-      nome.value = json.name;
-      endereco.value = json.address;
-      cep.value = json.cep;
-      // modal.id = e.parentNode.id;
-      // submitButton.onclick = editarUnidade()
+      nome.value = json.nameQuadra;
+      for (var i, j = 0; (i = unidade.options[j]); j++) {
+        if (i.value == json.nameUnidade) {
+          unidade.selectedIndex = j;
+          break;
+        }
+      }
     })
     .then(() => {
       modal.showModal();
@@ -99,20 +116,18 @@ function fecharPopUp() {
 function editarUnidade() {
   let id = document.getElementById("id-update").value;
   let nome = document.getElementById("unidade-update").value;
-  let endereco = document.getElementById("endereco-update").value;
-  let cep = document.getElementById("cep-update").value;
+  let unidade = document.getElementById("unidades-select").value;
 
   const options = {
     method: "PUT",
     headers: new Headers({ "content-type": "application/json" }),
     body: JSON.stringify({
       name: nome,
-      address: endereco,
-      cep: cep,
+      unidade: unidade,
     }),
   };
 
-  const url = "/unidades/dados/" + id;
+  const url = "/quadras/dados/" + id;
 
   fetch(url, options).then((res) => {
     atualizarUnidades();

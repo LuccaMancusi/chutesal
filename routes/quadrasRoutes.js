@@ -40,7 +40,7 @@ router.put("/dados/:id", async (req, res) => {
   let name = req.body.name;
   let unidade = req.body.unidade;
 
-  let update = { name, unidade };
+  let update = { nameQuadra: name, nameUnidade: unidade };
 
   Quadras.findByIdAndUpdate(id, update)
     .then(res.status(200).send())
