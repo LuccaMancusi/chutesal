@@ -42,6 +42,8 @@ router.put("/dados/:id", async (req, res) => {
   let name = req.body.name;
   let address = req.body.address;
   let cep = req.body.cep;
+  const quadras = await Quadras.find({});
+  const objModificado = await Unidades.findById(id);
 
   let update = { name, address, cep };
 
@@ -50,14 +52,32 @@ router.put("/dados/:id", async (req, res) => {
     .catch((err) => {
       res.send(err);
     });
+  for (var quadra of quadras) {
+    if (quadra.nameUnidade == objModificado.name) {
+      await Quadras.findOneAndUpdate(
+        { nameUnidade: objModificado.name },
+        { nameUnidade: name }
+      );
+    }
+  }
 });
 
-router.delete("/dados/:id", (req, res) => {
+router.delete("/dados/:id", async (req, res) => {
+  const quadras = await Quadras.find({});
+  const deleteQuadras = async function (nome) {
+    await Quadras.deleteMany({ nameUnidade: nome });
+  };
   Unidades.findByIdAndDelete(req.params.id)
     .then((unidades) => {
       if (!unidades) {
         return res.status(404).send();
       } else {
+        for (var quadra of quadras) {
+          if (quadra.nameUnidade == unidades.name) {
+            deleteQuadras(quadra.nameUnidade);
+            break;
+          }
+        }
         return res.status(200).send();
       }
     })
