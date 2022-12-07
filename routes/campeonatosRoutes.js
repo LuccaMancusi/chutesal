@@ -6,6 +6,7 @@ const Campeonatos = require("../models/Campeonatos");
 router.post("/dados", async (req, res) => {
   const Campeonato = await new Campeonatos({
     name: req.body.txtName,
+    unidade: req.body.unidadesList,
     inscricao: req.body.inscricao,
     divulgacao: req.body.divulgacao,
     status: req.body.statusList,
@@ -21,11 +22,40 @@ router.post("/dados", async (req, res) => {
 
 router.get("/dados", async (req, res) => {
   try {
-    const data = await Campeonatos.find({}, "name inscricao divulgacao status");
+    const data = await Campeonatos.find(
+      {},
+      "name unidade inscricao divulgacao status"
+    );
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({ message: "Falha ao carregar os dados! " });
   }
+});
+
+router.get("/dados/:id", async (req, res) => {
+  try {
+    const data = await Campeonatos.findById(req.params.id);
+    res.send(data);
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+router.put("/dados/:id", async (req, res) => {
+  let id = req.params.id;
+  let name = req.body.name;
+  let unidade = req.body.unidade;
+  let inscricao = req.body.inscricao;
+  let divulgacao = req.body.divulgacao;
+  let status = req.body.status;
+
+  let update = { id, name, unidade, inscricao, divulgacao, status };
+
+  Campeonatos.findByIdAndUpdate(id, update)
+    .then(res.status(200).send())
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
 router.delete("/dados/:id", (req, res) => {
