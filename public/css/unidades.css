@@ -23,7 +23,10 @@ body * {
   padding-bottom: 15px;
   flex-wrap: wrap;
 }
-
+#header a {
+  color: #00ff88;
+  text-decoration: none;
+}
 #tbtitle {
   margin-bottom: 25px;
 }
@@ -165,6 +168,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 td {
   color: #00ff88;
+  padding: 10px;
 }
 tbody:before {
   content: "@";
