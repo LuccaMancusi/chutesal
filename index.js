@@ -50,7 +50,16 @@ app.get("/campeonatos", function (req, res) {
   res.sendFile(__dirname + "/public/campeonatos.html");
 });
 app.get("/login", function (req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/login.html");
+});
+app.get("/admin", function (req, res) {
+  res.sendFile(__dirname + "/public/admin.html");
+});
+app.get("/cupManager", function (req, res) {
+  res.sendFile(__dirname + "/public/cupManager.html");
+});
+app.get("/visitante", function (req, res) {
+  res.sendFile(__dirname + "/public/visitante.html");
 });
 // conexão mongodb
 const DB_USER = "mackenzista";
