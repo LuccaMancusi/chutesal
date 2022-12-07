@@ -24,6 +24,10 @@ body * {
   flex-wrap: wrap;
 }
 
+#tbtitle {
+  margin-bottom: 25px;
+}
+
 .menu-list {
   list-style-type: none;
   display: flex;
@@ -51,7 +55,7 @@ body * {
 }
 
 .left-unidades {
-  width: 50vw;
+  width: 60vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -59,7 +63,7 @@ body * {
 }
 
 .right-unidades {
-  width: 50vw;
+  width: 40vw;
   height: 100vh;
   display: flex;
   justify-content: center;

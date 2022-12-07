@@ -105,6 +105,7 @@ body * {
   outline: none;
   text-transform: uppercase;
   font-weight: 800;
+  font-size: 1.2em;
   letter-spacing: 3px;
   color: #2b134b;
   background: #00ff88;
