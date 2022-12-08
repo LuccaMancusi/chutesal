@@ -5,7 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/admin.css" rel="stylesheet" type="text/css">
-        <script src="./js/main.js"></script>
+        <link href="./css/unidades.css" rel="stylesheet" type="text/css">
+        <!-- <link href="./css/consulta.css" rel="stylesheet" type="text/css"> -->
+        <script src="./js/consultaCampeonatos.js"></script>
         <title>Chutesal - Visitante</title>
     </head>
     <body>
@@ -13,10 +15,11 @@
             <h1>ChuteSal - Visitante</h1>
         </header>
         <div class="main-login">
-            <div class="card-login">
-                <button class="btn-login" onclick="location.href= '/jogadores';">Realizar Inscrição</button>
-                <button class="btn-login" onclick="location.href= '/consultarCampeonatos';">Consultar Campeonatos</button>
-                <button class="btn-login" >Consultar Jogos</button>
+            <div class="card-login" style="width: 90%">
+                <!-- <div class="card-unidades" id="lista-unidades"> -->
+                    <h1 id="tbtitle">Campeonatos</h1>
+                    <table id="teste"></table>
+                  <!-- </div> -->
             </div>
         </div>
     </body>

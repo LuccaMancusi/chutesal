@@ -1,76 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./css/unidades.css" rel="stylesheet" type="text/css" />
-    <script src="./js/jogadores.js"></script>
-    <title>Gerenciamento de Jogadores - ChuteSal</title>
-  </head>
-  <body>
-    <header id="header">
-      <h1><a href = "/">ChuteSal</a></h1>
-      <!-- <ul class="menu-list">
-        <li><a href="unidades.html">Admin</a></li>
-        <li><a href="campeonatos.html">Cup Manager</a></li>
-        <li><a href="jogadores.html">Visitante</a></li>
-      </ul> -->
-    </header>
-    <div class="main-unidades">
-      <div class="right-unidades">
-        <div class="card-unidades" id="lista-unidades">
-          <h1>Jogadores Cadastrados</h1>
-          <table id="teste"></table>
+  <!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <script src="./js/login.js"></script>
+        <title>Chutesal - Realizar inscrição</title>
+    </head>
+    <body>
+        <div class="main-login">
+            <div class="left-login">
+                <h1>Inscreva-se<br>E participe do nosso campeonato</h1>
+                <img src="./img/soccer-animate.svg" class="left-login-image" alt="Futebol animado">
+            </div>
+             <form action="/jogadores/dados" method="POST">
+                <div class="right-login">
+                    <div class="card-login">
+                        <div class="textfield">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" name="name" id="name" placeholder="Nome Completo">
+                        </div>
+                        <div class="textfield">
+                            <label for="nickname">Apelido (opcional)</label>
+                            <input type="text" name="nickname" id="apelido" placeholder="Apelido">
+                        </div>
+                        <div class="textfield">
+                          <label for="number">WhatsApp</label>
+                          <input type="number" name="number" id="number" placeholder="(99) 99999-9999">
+                        </div>
+                        <div class="textfield">
+                          <label for="birthday">Data de Nascimento</label>
+                          <input type="date" name="birthday" id="birthday">
+                        </div>
+                        <!-- <div class="textfield">
+                          <label for="time">Time</label>
+                          <input type="text" name="time" id="time" placeholder="Time">
+                        </div> -->
+                        <button class="btn-login" type="submit" id="login-button">Enviar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-      <form action="/jogadores/dados" method="POST">
-        <div class="right-unidades">
-          <div class="card-unidades">
-            <h1>Cadastre os jogadores</h1>
-            <div class="textfield">
-              <label for="number">Número do jogador</label>
-              <input
-                type="number"
-                name="number"
-                id="number"
-                min="1"
-                placeholder="Numero do jogador"
-              />
-            </div>
-            <div class="textfield">
-              <label for="name">Nome do jogador</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Nome do jogador"
-              />
-            </div>
-            <div class="textfield">
-              <label for="nickname">Apelido</label>
-              <input
-                type="text"
-                name="nickname"
-                id="nickname"
-                placeholder="Apelido do jogador"
-              />
-            </div>
-            <div class="textfield">
-              <label for="birthday">Data de nascimento</label>
-              <input
-                type="date"
-                name="birthday"
-                id="birthday"
-                placeholder="Data de nascimento"
-              />
-            </div>
-            <button class="btn-unidades" type="submit" id="unidades-button">
-              CRIAR
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </body>
+    </body>
 </html>

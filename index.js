@@ -61,6 +61,9 @@ app.get("/cupManager", function (req, res) {
 app.get("/visitante", function (req, res) {
   res.sendFile(__dirname + "/public/visitante.html");
 });
+app.get("/consultarCampeonatos", function (req, res) {
+  res.sendFile(__dirname + "/public/consultaCampeonatos.html");
+});
 // conexão mongodb
 const DB_USER = "mackenzista";
 const DB_PASSWORD = encodeURIComponent("Mackenzie2022");

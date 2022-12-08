@@ -14,7 +14,7 @@ router.post("/dados", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.redirect("/jogadores");
+      res.send("<script>alert('Inscrição realizada com sucesso!'); window.location.href = '/'; </script>");
     }
   });
 });

@@ -53,3 +53,7 @@ function deletar(e) {
 //    .then(
 //       atualizarUnidades()
 // )
+
+function jogadoresSucesso(){
+  alert("Inscrição realizada com sucesso!")
+}
