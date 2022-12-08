@@ -37,6 +37,14 @@
                 placeholder="Nome do campeonato"
               />
             </div>
+            <div class="textfield select-style">
+              <label for="unidade">Unidade</label>
+              <select
+                id="select-unidades"
+                name="unidadesList"
+                form="form-campeonato"
+              ></select>
+            </div>
             <div class="textfield">
               <label for="endereco">Periodo de inscrição</label>
               <input
@@ -55,7 +63,7 @@
                 placeholder="Inicio de divulgação"
               />
             </div>
-            <div class="textfield">
+            <div class="textfield select-style">
               <label for="status">Status</label>
               <select id="status" name="statusList" form="form-campeonato">
                 <option value="planejado">Planejado</option>
@@ -71,5 +79,74 @@
         </div>
       </form>
     </div>
+    <dialog id="popup">
+      <form id="updateForm">
+        <div class="card-unidades">
+          <div onclick="fecharPopUp()" id="close">x</div>
+          <h1>Atualizar Campeonato</h1>
+          <div class="textfield">
+            <label for="id">Id do campeonato</label>
+            <input
+              type="text"
+              name="txtId"
+              id="id-update"
+              placeholder="Id do campeonato"
+            />
+          </div>
+          <div class="textfield">
+            <label for="name">Nome do Campeonato</label>
+            <input
+              type="text"
+              name="txtName"
+              id="unidade-update"
+              placeholder="Nome do campeonato"
+            />
+          </div>
+          <div class="textfield select-style">
+            <label for="unidade">Unidade</label>
+            <select name="unidade" id="unidades-select"></select>
+          </div>
+          <div class="textfield">
+            <label for="inscricaoUpdate">Periodo de inscrição</label>
+            <input
+              type="date"
+              name="inscricaoUpdate"
+              id="inscricaoUpdate"
+              placeholder="Periodo de inscrição"
+            />
+          </div>
+          <div class="textfield">
+            <label for="divulgacaoUpdate">Inicio de divulgação</label>
+            <input
+              type="date"
+              name="divulgacaoUpdate"
+              id="divulgacaoUpdate"
+              placeholder="Inicio de divulgação"
+            />
+          </div>
+          <div class="textfield select-style">
+            <label for="statusUpdate">Status</label>
+            <select
+              id="statusUpdate"
+              name="statusUpdate"
+              form="form-campeonato"
+            >
+              <option value="planejado">Planejado</option>
+              <option value="andamento">Em andamento</option>
+              <option value="cancelado">Cancelado</option>
+              <option value="executado">Executado</option>
+            </select>
+          </div>
+
+          <button
+            onclick="editarUnidade()"
+            class="btn-unidades"
+            id="update-button"
+          >
+            Atualizar
+          </button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
