@@ -36,6 +36,9 @@ app.use("/campeonatos", campeonatosRoutes);
 const jogadoresRoutes = require("./routes/jogadoresRoutes");
 app.use("/jogadores", jogadoresRoutes);
 
+const timesRoutes = require("./routes/timesRoutes");
+app.use("/times", timesRoutes);
+
 // rota inicial / endpoint
 app.get("/unidades", function (req, res) {
   res.sendFile(__dirname + "/public/unidades.html");
@@ -63,6 +66,9 @@ app.get("/visitante", function (req, res) {
 });
 app.get("/consultarCampeonatos", function (req, res) {
   res.sendFile(__dirname + "/public/consultaCampeonatos.html");
+});
+app.get("/times", function (req, res) {
+  res.sendFile(__dirname + "/public/times.html");
 });
 // conexão mongodb
 const DB_USER = "mackenzista";

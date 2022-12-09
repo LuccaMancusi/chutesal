@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/unidades.css" rel="stylesheet" type="text/css" />
-    <script src="./js/unidades.js"></script>
-    <title>Gerenciamento de Unidades - ChuteSal</title>
+    <script src="./js/times.js"></script>
+    <title>Gerenciamento de Times - ChuteSal</title>
   </head>
   <body>
     <header id="header">
@@ -17,48 +17,35 @@
         <li><a href="jogadores.html">Visitante</a></li>
       </ul> -->
     </header>
-    <!-- <div id="options">
-      <a href="unidades.html">Unidades</a><a href="quadras.html">Quadras</a>
-    </div> -->
     <div class="main-unidades">
       <div class="left-unidades">
         <div class="card-unidades" id="lista-unidades">
-          <h1 id="tbtitle">Unidades Cadastradas</h1>
+          <h1 id="tbtitle">Times Cadastrados</h1>
           <table id="teste"></table>
         </div>
       </div>
-      <form action="/unidades/dados" method="POST">
+      <form id="form-campeonato" action="/times/dados" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
-            <h1>Cadastre as Unidades</h1>
+            <h1>Cadastre os Times</h1>
             <div class="textfield">
-              <label for="name">Nome da Unidade</label>
+              <label for="name">Nome do Time</label>
               <input
                 type="text"
-                name="txtName"
-                id="unidade"
-                placeholder="Nome da Unidade"
+                name="name"
+                id="time"
+                placeholder="Nome do Time"
               />
             </div>
-            <div class="textfield">
-              <label for="endereco">Endereço</label>
-              <input
-                type="text"
-                name="txtAddress"
-                id="endereco"
-                placeholder="Endereço da Unidade"
-              />
+            <div class="textfield select-style">
+              <label for="campeonato">Campeonato</label>
+              <select
+                id="select-campeonatos"
+                name="campeonato"
+                form="form-campeonato"
+              ></select>
             </div>
-            <div class="textfield">
-              <label for="cep">CEP</label>
-              <input
-                type="number"
-                name="txtCep"
-                id="cep"
-                min="1"
-                placeholder="CEP"
-              />
-            </div>
+
             <button class="btn-unidades" type="submit" id="unidades-button">
               CRIAR
             </button>
@@ -70,44 +57,30 @@
       <form id="updateForm">
         <div class="card-unidades">
           <div onclick="fecharPopUp()" id="close">x</div>
-          <h1>Atualizar unidade</h1>
+          <h1>Atualizar Times</h1>
           <div class="textfield">
             <input
               type="text"
               name="txtId"
               id="id-update"
-              placeholder="Id da Unidade"
+              placeholder="Id do time"
               style="display: none"
             />
           </div>
           <div class="textfield">
-            <label for="name">Nome da Unidade</label>
+            <label for="name">Nome do Time</label>
             <input
               type="text"
               name="txtName"
-              id="unidade-update"
-              placeholder="Nome da Unidade"
+              id="time-update"
+              placeholder="Nome do time"
             />
           </div>
-          <div class="textfield">
-            <label for="endereco">Endereço</label>
-            <input
-              type="text"
-              name="txtAddress"
-              id="endereco-update"
-              placeholder="Endereço da Unidade"
-            />
+          <div class="textfield select-style">
+            <label for="campeonato">Unidade</label>
+            <select name="campeonato" id="campeonato-select"></select>
           </div>
-          <div class="textfield">
-            <label for="cep">CEP</label>
-            <input
-              type="number"
-              name="txtCep"
-              id="cep-update"
-              min="1"
-              placeholder="CEP"
-            />
-          </div>
+
           <button
             onclick="editarUnidade()"
             class="btn-unidades"
