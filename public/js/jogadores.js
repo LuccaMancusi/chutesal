@@ -1,6 +1,22 @@
 window.onload = atualizarJogadores;
 
 function atualizarJogadores() {
+  let selectElements = "";
+  fetch("/campeonatos/dados")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      let campeonatos = json;
+
+      campeonatos.forEach((item) => {
+        console.log(item);
+        let option = `<option value="${item.name}">${item.name}</option>`;
+        selectElements += option;
+      });
+
+      document.getElementById("select-campeonatos").innerHTML = selectElements;
+    });
   fetch("/jogadores/dados")
     .then((res) => {
       return res.json();
@@ -16,13 +32,14 @@ function atualizarJogadores() {
           <td class="margin-right">${item.name}</td>
           <td class="margin-right">${item.nickname}</td>
           <td class="margin-right">${item.birthday?.substr(0, 10)}</td>
+          <td class="margin-right">${item.campeonato}</td>
           <td style = "color: red; cursor: pointer" onclick="deletar(this)">X</td>
         </tr>`;
         elementosJogador += elementoJogador;
       });
 
       let tableHead =
-        "<thead><tr id='table-head'><td>Número</td><td>Nome</td><td>Apelido</td><td>Data de Nascimento</td></tr><thead>";
+        "<thead><tr id='table-head'><td>Número</td><td>Nome</td><td>Apelido</td><td>Data de Nascimento</td><td>Campeonato</td></tr><thead>";
 
       document.getElementById("teste").innerHTML =
         tableHead + "<tbody>" + elementosJogador + "</tbody>";
@@ -54,6 +71,6 @@ function deletar(e) {
 //       atualizarUnidades()
 // )
 
-function jogadoresSucesso(){
-  alert("Inscrição realizada com sucesso!")
+function jogadoresSucesso() {
+  alert("Inscrição realizada com sucesso!");
 }

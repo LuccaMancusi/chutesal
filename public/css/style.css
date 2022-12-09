@@ -172,3 +172,34 @@ body * {
     width: 90%;
   }
 }
+
+#options {
+  background: #201b2c;
+  padding-left: 7%;
+  padding-top: 10px;
+}
+#options a {
+  text-decoration: none;
+  color: #00ff88;
+  margin-right: 32px;
+}
+#options a:hover {
+  border-bottom: solid 2px #00ff88;
+}
+
+.select-style {
+  position: relative;
+  background-color: #2d273f;
+}
+.select-style select {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0px;
+  box-shadow: 0px 10px 40px #00000056;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt;
+  padding: 15px;
+  border: none;
+  font-family: "Noto Sans", sans-serif;
+}

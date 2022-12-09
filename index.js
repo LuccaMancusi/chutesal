@@ -68,7 +68,7 @@ app.get("/consultarCampeonatos", function (req, res) {
 const DB_USER = "mackenzista";
 const DB_PASSWORD = encodeURIComponent("Mackenzie2022");
 
-app.listen(process.env.PORT || port);
+app.listen(3000);
 mongoose
   .connect(
     `mongodb+srv://${DB_USER}:${DB_PASSWORD}@chutesal.i9zh8lf.mongodb.net/?retryWrites=true&w=majority`

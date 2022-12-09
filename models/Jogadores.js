@@ -7,6 +7,7 @@ const Jogadores = mongoose.model("Jogadores", {
   name: { type: String },
   nickname: { type: String },
   birthday: { type: Date },
+  campeonato: { type: String },
 });
 
 module.exports = Jogadores;

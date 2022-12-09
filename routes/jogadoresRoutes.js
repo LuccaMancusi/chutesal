@@ -9,19 +9,25 @@ router.post("/dados", async (req, res) => {
     name: req.body.name,
     nickname: req.body.nickname,
     birthday: req.body.birthday,
+    campeonato: req.body.campeonato,
   });
   Jogador.save(function (err) {
     if (err) {
       console.log(err);
     } else {
-      res.send("<script>alert('Inscrição realizada com sucesso!'); window.location.href = '/'; </script>");
+      res.send(
+        "<script>alert('Inscrição realizada com sucesso!'); window.location.href = '/'; </script>"
+      );
     }
   });
 });
 
 router.get("/dados", async (req, res) => {
   try {
-    const data = await Jogadores.find({}, "number name nickname birthday");
+    const data = await Jogadores.find(
+      {},
+      "number name nickname birthday campeonato"
+    );
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({ message: "Falha ao carregar os dados! " });

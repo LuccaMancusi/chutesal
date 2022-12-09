@@ -7,8 +7,6 @@ function atualizarCampeonatos() {
       return res.json();
     })
     .then((json) => {
-      let elementosUnidade = "";
-
       let unidades = json;
 
       unidades.forEach((item) => {
