@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/unidades.css" rel="stylesheet" type="text/css" />
-    <script src="./js/campeonatos.js"></script>
-    <title>Gerenciamento de Campeonatos - ChuteSal</title>
+    <script src="./js/jogos.js"></script>
+    <title>Gerenciamento de Jogos - ChuteSal</title>
   </head>
   <body>
     <header id="header">
@@ -20,58 +20,61 @@
     <div class="main-unidades">
       <div class="left-unidades">
         <div class="card-unidades" id="lista-unidades">
-          <h1 id="tbtitle">Campeonatos Cadastrados</h1>
+          <h1 id="tbtitle">Jogos Cadastrados</h1>
           <table id="teste"></table>
         </div>
       </div>
-      <form id="form-campeonato" action="/campeonatos/dados" method="POST">
+      <form id="form-jogos" action="/jogos/dados" method="POST">
         <div class="right-unidades">
           <div class="card-unidades">
-            <h1>Cadastre os campeonatos</h1>
+            <h1>Cadastre os jogos</h1>
             <div class="textfield">
-              <label for="name">Nome do campeonato</label>
+              <label for="team1">Time 1</label>
               <input
                 type="text"
-                name="txtName"
+                name="team1"
                 id="unidade"
-                placeholder="Nome do campeonato"
-              />
-            </div>
-            <div class="textfield select-style">
-              <label for="unidade">Unidade</label>
-              <select
-                id="select-unidades"
-                name="unidadesList"
-                form="form-campeonato"
-              ></select>
-            </div>
-            <div class="textfield">
-              <label for="endereco">Periodo de inscrição</label>
-              <input
-                type="date"
-                name="inscricao"
-                id="endereco"
-                placeholder="Periodo de inscrição"
+                placeholder="Time 1"
               />
             </div>
             <div class="textfield">
-              <label for="quadras">Inicio de divulgação</label>
+                <label for="team2">Time 2</label>
+                <input
+                  type="text"
+                  name="team2"
+                  id="unidade"
+                  placeholder="Time 2"
+                />
+            </div>
+            <div class="textfield">
+                <label for="score">Placar</label>
+                <input
+                  type="text"
+                  name="score"
+                  id="unidade"
+                  placeholder="Placar"
+                />
+            </div>
+            <div class="textfield">
+              <label for="date">Data</label>
               <input
                 type="date"
-                name="divulgacao"
-                id="quadras"
-                placeholder="Inicio de divulgação"
+                name="date"
+                id="date"
               />
             </div>
-            <div class="textfield select-style">
-              <label for="status">Status</label>
-              <select id="status" name="statusList" form="form-campeonato">
-                <option value="Planejado">Planejado</option>
-                <option value="Em Andamento">Em andamento</option>
-                <option value="Cancelado">Cancelado</option>
-                <option value="Executado">Executado</option>
-              </select>
-            </div>
+            <div class="textfield">
+                <label for="time">Horário</label>
+                <input
+                  type="time"
+                  name="time"
+                  id="time"
+                />
+              </div>
+              <div class="textfield select-style">
+                <label for="campeonato">Campeonato</label>
+                <select name="campeonato" id="unidades-select"></select>
+              </div>
             <button class="btn-unidades" type="submit" id="unidades-button">
               CRIAR
             </button>
@@ -79,7 +82,7 @@
         </div>
       </form>
     </div>
-    <dialog id="popup">
+    <!-- <dialog id="popup">
       <form id="updateForm">
         <div class="card-unidades">
           <div onclick="fecharPopUp()" id="close">x</div>
@@ -131,10 +134,10 @@
               name="statusUpdate"
               form="form-campeonato"
             >
-              <option value="Planejado">Planejado</option>
-              <option value="Em Andamento">Em andamento</option>
-              <option value="Cancelado">Cancelado</option>
-              <option value="Executado">Executado</option>
+              <option value="planejado">Planejado</option>
+              <option value="andamento">Em andamento</option>
+              <option value="cancelado">Cancelado</option>
+              <option value="executado">Executado</option>
             </select>
           </div>
 
@@ -144,7 +147,7 @@
             id="update-button"
           >
             Atualizar
-          </button>
+          </button> -->
         </div>
       </form>
     </dialog>

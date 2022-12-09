@@ -1,23 +1,23 @@
 window.onload = atualizarCampeonatos;
 
 function atualizarCampeonatos() {
-  let selectElements = "";
-  fetch("/unidades/dados")
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      let elementosUnidade = "";
+  // let selectElements = "";
+  // fetch("/unidades/dados")
+  //   .then((res) => {
+  //     return res.json();
+  //   })
+  //   .then((json) => {
+  //     let elementosUnidade = "";
 
-      let unidades = json;
+  //     let unidades = json;
 
-      unidades.forEach((item) => {
-        let option = `<option value="${item.name}">${item.name}</option>`;
-        selectElements += option;
-      });
+  //     unidades.forEach((item) => {
+  //       let option = `<option value="${item.name}">${item.name}</option>`;
+  //       selectElements += option;
+  //     });
 
-      document.getElementById("select-unidades").innerHTML = selectElements;
-    });
+  //     document.getElementById("select-unidades").innerHTML = selectElements;
+  //   });
   fetch("/campeonatos/dados")
     .then((res) => {
       return res.json();
