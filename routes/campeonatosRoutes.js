@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { restart } = require("nodemon");
 const Campeonatos = require("../models/Campeonatos");
 const Jogadores = require("../models/Jogadores");
+const Jogos = require("../models/Jogos");
 
 // criação de unidades
 router.post("/dados", async (req, res) => {
@@ -50,6 +51,7 @@ router.put("/dados/:id", async (req, res) => {
   let divulgacao = req.body.divulgacao;
   let status = req.body.status;
   const jogadores = await Jogadores.find({});
+  const jogos = await Jogos.find({});
   const objModificado = await Campeonatos.findById(id);
 
   let update = { id, name, unidade, inscricao, divulgacao, status };
@@ -67,12 +69,24 @@ router.put("/dados/:id", async (req, res) => {
       );
     }
   }
+  for (var jogo of jogos) {
+    if (jogo.campeonato == objModificado.name) {
+      await Jogos.findOneAndUpdate(
+        { campeonato: objModificado.name },
+        { campeonato: name }
+      );
+    }
+  }
 });
 
 router.delete("/dados/:id", async (req, res) => {
   const jogadores = await Jogadores.find({});
+  const jogos = await Jogos.find({});
   const deleteJogadores = async function (nome) {
     await Jogadores.deleteMany({ campeonato: nome });
+  };
+  const deleteJogos = async function (nome) {
+    await Jogos.deleteMany({ campeonato: nome });
   };
   Campeonatos.findByIdAndDelete(req.params.id)
     .then((campeonatos) => {
@@ -82,6 +96,12 @@ router.delete("/dados/:id", async (req, res) => {
         for (var jogador of jogadores) {
           if (jogador.campeonato == campeonatos.name) {
             deleteJogadores(jogador.campeonato);
+            break;
+          }
+        }
+        for (var jogo of jogos) {
+          if (jogo.campeonato == campeonatos.name) {
+            deleteJogos(jogo.campeonato);
             break;
           }
         }

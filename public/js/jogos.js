@@ -1,6 +1,21 @@
 window.onload = atualizarJogos;
 
 function atualizarJogos() {
+  let selectElements = "";
+  fetch("/campeonatos/dados")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      let campeonatos = json;
+
+      campeonatos.forEach((item) => {
+        let option = `<option value="${item.name}">${item.name}</option>`;
+        selectElements += option;
+      });
+
+      document.getElementById("unidades-select").innerHTML = selectElements;
+    });
   fetch("/jogos/dados")
     .then((res) => {
       return res.json();
@@ -12,7 +27,9 @@ function atualizarJogos() {
 
       jogos.forEach((item) => {
         let elementoUnidade = `<tr id="${item._id}">
-          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${item.team1}</td>
+          <td onclick="popup(this)" style="cursor: pointer" class="margin-right">${
+            item.team1
+          }</td>
           <td class="margin-right">${item.team2}</td>
           <td class="margin-right">${item.score}</td>
           <td class="margin-right">${item.date?.substr(0, 10)}</td>
